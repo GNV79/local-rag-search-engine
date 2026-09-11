@@ -1,6 +1,5 @@
 
 ```powershell
-Set-Content -Path "C:\yapayzeka\README.md" -Encoding UTF8 -Value @'
 # Local LLM Alignment: Overcoming Parametric Bias & Sycophancy via Constrained RAG
 
 An empirical framework evaluating open-source local LLMs (Mistral 7B) on domain-conflict alignment, negative constraint prompting, and defensive persona retention against parametric priors.
@@ -14,20 +13,15 @@ When open-weight models are prompted about prominent pop-culture or canonical do
 This project implements an end-to-end local Retrieval-Augmented Generation (RAG) pipeline designed to enforce a non-prophetic, domestic Alternate Universe (AU). Severus Snape acts as a protective, sharp, and deeply suspicious step-parent.
 
 ```text
-yapayzeka/
-├── kaynaklar/
-│   ├── SERIES SIOTH.txt        # Book 1: Structural Integrity of the Heart
-│   └── SERIES SIOTH 2.txt      # Book 2: Retrograde: A Solar Return
-├── benchmarks/
-│   └── evaluation_report.md    # Evaluation report and adversarial logs
-├── src/
-│   ├── ingest.py               # Document loading & ChromaDB ingestion
-│   ├── sor.py                  # Analytical retrieval & query engine
-│   └── rol.py                  # Aligned Severus Snape persona simulator
-├── .gitignore
-├── requirements.txt
-└── README.md
-
++------------------------------------+      +---------------------+
+|        Local Data / Corpus         | ---> |  ChromaDB (Vectors) |
+|   (Unpublished Context / AU)       |      +---------------------+
++------------------------------------+                 |
+                                                       v
++------------------------------------+      +---------------------+      +---------------------+
+|  Adversarial / Intimate Input      | ---> |  LangChain Pipeline | ---> | Aligned Local Model |
+|                                    |      | (Neg. Constraints)  |      |    (Mistral 7B)     |
++------------------------------------+      +---------------------+      +---------------------+
 ```
 
 ---
@@ -43,7 +37,7 @@ yapayzeka/
 
 ## Repository Structure
 
-* **`kaynaklar/`**: Raw narrative corpus containing the domestic AU lore (`SERIES SIOTH.txt` and `SERIES SIOTH 2.txt`).
+* **`kaynaklar/` (Local)**: Directory reserved for raw, unpublished text corpora (excluded from version control via `.gitignore` to preserve data privacy).
 * **`benchmarks/evaluation_report.md`**: Systematic failure mode breakdown, ablation study, and raw adversarial test logs.
 * **`src/ingest.py`**: Document loader, chunking, and deduplicated embedding pipeline populating the local persistent vector store.
 * **`src/sor.py`**: Factual retrieval, document summarization, and analytical query pipeline.
@@ -99,7 +93,7 @@ pip install -r requirements.txt
 ### 3. Ingestion & Execution
 
 ```bash
-# Ingest context from 'kaynaklar/' into local ChromaDB
+# Ingest local context into ChromaDB vector store
 python src/ingest.py
 
 # Launch interactive aligned simulator
@@ -110,7 +104,5 @@ python src/rol.py
 '@
 
 ```
-
-Komutu çalıştırdıktan sonra PowerShell'de `git status` yazıp gelen çıktıyı gönderebilir misin?
 
 ```
