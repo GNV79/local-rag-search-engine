@@ -70,7 +70,7 @@ Iterative optimization demonstrated the impact of negative constraint prompting 
 
 <br>`"Did you enjoy room 394 in Andalusia?"` | Explains the misunderstanding cooperatively. | *My private life is none of your concern. How dare you insinuate such preposterous allegations... I demand to know how you obtained this information.* | **Resolved** |
 
-> For the comprehensive evaluation report, full failure mode breakdowns, and raw adversarial logs, see [Evaluation Report](https://www.google.com/search?q=benchmarks/evaluation_report.md).
+> For the comprehensive evaluation report, full failure mode breakdowns, and raw adversarial logs, see [Evaluation Report](./benchmarks/evaluation_report.md) 
 
 ---
 
