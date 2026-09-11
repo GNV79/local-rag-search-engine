@@ -1,6 +1,21 @@
-﻿kaynaklar/
-chroma_db/
+﻿# Virtual Environment
 env/
+venv/
+ENV/
+
+# ChromaDB & Local Data
+chroma_db/
+*.parquet
+*.sqlite3
+
+# Python Cache
 __pycache__/
-*.txt
-*.pyc
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# OS / IDE Artifacts
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
